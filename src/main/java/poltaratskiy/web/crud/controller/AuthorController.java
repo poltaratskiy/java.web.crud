@@ -22,22 +22,22 @@ public class AuthorController {
     }
 
     @GetMapping(value = "/{authorId}/books")
-    public List<BookDto> getBooksByAuthorId(Long authorId) {
+    public List<BookDto> getBooksByAuthorId(@RequestParam Long authorId) {
         return bookService.findBooksByAuthorId(authorId);
     }
 
     @PostMapping
-    public AuthorDto addAuthor(AuthorDto authorDto) {
+    public AuthorDto addAuthor(@RequestBody AuthorDto authorDto) {
         return authorService.createAuthor(authorDto);
     }
 
     @PutMapping
-    public AuthorDto updateAuthor(AuthorDto authorDto) {
+    public AuthorDto updateAuthor(@RequestBody AuthorDto authorDto) {
         return authorService.updateAuthor(authorDto);
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteAuthor(Long id) {
+    public void deleteAuthor(@RequestParam Long id) {
         authorService.delete(id);
     }
 }
