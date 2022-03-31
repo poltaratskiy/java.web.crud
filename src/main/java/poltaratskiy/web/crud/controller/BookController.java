@@ -3,6 +3,7 @@ package poltaratskiy.web.crud.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import poltaratskiy.web.crud.dto.BookDto;
 import poltaratskiy.web.crud.model.Book;
 import poltaratskiy.web.crud.service.BookService;
 
@@ -15,26 +16,26 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping(value = "/search/{searchRequest}")
-    public List<Book> getBook(@PathVariable String searchRequest) {
+    public List<BookDto> getBook(@PathVariable String searchRequest) {
         System.out.println("Search request: " + searchRequest);
         return bookService.findBooks(searchRequest);
     }
 
     @GetMapping
-    public List<Book> getAllBook() {
+    public List<BookDto> getAllBook() {
         return bookService.getBooks();
     }
 
     @PostMapping
-    public Book addBook(@RequestBody Book book) {
-        System.out.println("Book for save to database, author: " + book.getAuthor() + ", name: " + book.getName());
-        return bookService.createBook(book);
+    public BookDto addBook(@RequestBody BookDto bookDto) {
+        System.out.println("Book for save to database, author: " + bookDto.getAuthorName() + ", name: " + bookDto.getName());
+        return bookService.createBook(bookDto);
     }
 
     @PutMapping
-    public Book updateBook(@RequestBody Book book) {
-        System.out.println("Book for update, id: " + book.getId());
-        return bookService.updateBook(book);
+    public BookDto updateBook(@RequestBody BookDto bookDto) {
+        System.out.println("Book for update, id: " + bookDto.getId());
+        return bookService.updateBook(bookDto);
     }
 
     @DeleteMapping(value = "/{id}")

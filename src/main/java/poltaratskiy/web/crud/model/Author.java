@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Setter
@@ -13,17 +14,21 @@ import javax.persistence.*;
 @Table(name = "books")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // @Column(name = "author_id", insertable = false, updatable = false)
-    // private Long authorId;
-    private String authorName;
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private Author author;
+    @OneToMany(mappedBy = "author")
+    private List<Book> books;
+
+    private void addBook(Book book) {
+        book.setAuthor(this);
+        books.add(book);
+    }
+
+    private void deleteBook(Book book) {
+        books.remove(book);
+    }
 }
