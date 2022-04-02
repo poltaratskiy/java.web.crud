@@ -18,12 +18,12 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // @Column(name = "author_id", insertable = false, updatable = false)
-    // private Long authorId;
+    @Column(name = "author_id", insertable = false, updatable = false)
+    private Long authorId;
     private String authorName;
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
     private Author author;
 }

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Setter
@@ -19,16 +18,4 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-    @OneToMany(mappedBy = "author")
-    private List<Book> books;
-
-    private void addBook(Book book) {
-        book.setAuthor(this);
-        books.add(book);
-    }
-
-    private void deleteBook(Book book) {
-        books.remove(book);
-    }
 }

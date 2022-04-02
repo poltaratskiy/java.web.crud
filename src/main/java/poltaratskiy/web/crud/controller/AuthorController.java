@@ -22,7 +22,7 @@ public class AuthorController {
     }
 
     @GetMapping(value = "/{authorId}/books")
-    public List<BookDto> getBooksByAuthorId(@RequestParam Long authorId) {
+    public List<BookDto> getBooksByAuthorId(@PathVariable Long authorId) {
         return bookService.findBooksByAuthorId(authorId);
     }
 
@@ -37,7 +37,7 @@ public class AuthorController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteAuthor(@RequestParam Long id) {
+    public void deleteAuthor(@PathVariable Long id) {
         authorService.delete(id);
     }
 }

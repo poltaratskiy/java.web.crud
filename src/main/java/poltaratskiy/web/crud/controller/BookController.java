@@ -4,7 +4,6 @@ package poltaratskiy.web.crud.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import poltaratskiy.web.crud.dto.BookDto;
-import poltaratskiy.web.crud.model.Book;
 import poltaratskiy.web.crud.service.BookService;
 
 import java.util.List;
