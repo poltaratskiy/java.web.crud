@@ -17,10 +17,6 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "author_id", insertable = false, updatable = false)
-    private Long authorId;
-    private String authorName;
     private String name;
 
     @ManyToOne(fetch = FetchType.EAGER)

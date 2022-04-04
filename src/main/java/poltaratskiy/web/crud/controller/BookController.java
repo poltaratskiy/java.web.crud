@@ -27,7 +27,7 @@ public class BookController {
 
     @PostMapping
     public BookDto addBook(@RequestBody BookDto bookDto) {
-        System.out.println("Book for save to database, author: " + bookDto.getAuthorName() + ", name: " + bookDto.getName());
+        System.out.println("Book for save to database, author: " + bookDto.getAuthor().getName() + ", name: " + bookDto.getName());
         return bookService.createBook(bookDto);
     }
 

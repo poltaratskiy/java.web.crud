@@ -25,11 +25,12 @@ public class BookService {
     }
 
     public List<BookDto> findBooks(String searchRequest) {
-        return bookRepository.findByAuthorOrName(searchRequest, searchRequest).stream().map(bookMapper::toDto).toList();
+        return bookRepository.findByAuthorOrName(searchRequest, searchRequest).stream().map(bookMapper::
+        toDto).toList();
     }
 
     public List<BookDto> findBooksByAuthorId(Long authorId) {
-        return bookRepository.findByAuthorId(authorId).stream().map(bookMapper::toDto).toList();
+        return bookRepository.findByAuthorId(authorId).stream().map(book -> bookMapper.toDto(book)).toList();
     }
 
     public BookDto createBook(BookDto bookDto) {

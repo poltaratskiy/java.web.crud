@@ -8,4 +8,5 @@ import java.util.List;
 public class AuthorDto {
     private Long id;
     private String name;
+    private List<BookDto> books;
 }

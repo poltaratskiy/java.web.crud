@@ -9,7 +9,7 @@
                 <constraints nullable="false" primaryKey="true" />
             </column>
             <column name="author_name" type="character varying (255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="name" type="character varying (255)">
                 <constraints nullable="false" />

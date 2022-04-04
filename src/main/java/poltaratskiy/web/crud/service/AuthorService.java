@@ -15,11 +15,11 @@ public class AuthorService {
     private final AuthorMapper authorMapper;
 
     public List<AuthorDto> getAuthors() {
-        return authorRepository.findAll().stream().map(x -> authorMapper.toAuthorDto(x)).toList();
+        return authorRepository.findAll().stream().map(authorMapper::toAuthorDto).toList();
     }
 
     public List<AuthorDto> findAuthorByName(String name) {
-        return authorRepository.findByName(name).stream().map(x -> authorMapper.toAuthorDto(x)).toList();
+        return authorRepository.findByName(name).stream().map(authorMapper::toAuthorDto).toList();
     }
 
     public AuthorDto createAuthor(AuthorDto authorDto) {
