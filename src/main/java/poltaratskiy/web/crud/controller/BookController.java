@@ -4,6 +4,7 @@ package poltaratskiy.web.crud.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import poltaratskiy.web.crud.dto.BookDto;
+import poltaratskiy.web.crud.dto.BookSearchRequestDto;
 import poltaratskiy.web.crud.service.BookService;
 
 import java.util.List;
@@ -14,8 +15,8 @@ import java.util.List;
 public class BookController {
     private final BookService bookService;
 
-    @GetMapping(value = "/search/{searchRequest}")
-    public List<BookDto> getBook(@PathVariable String searchRequest) {
+    @PostMapping(value = "/search")
+    public List<BookDto> getBook(@RequestBody BookSearchRequestDto searchRequest) {
         System.out.println("Search request: " + searchRequest);
         return bookService.findBooks(searchRequest);
     }

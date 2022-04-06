@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import poltaratskiy.web.crud.dto.BookDto;
+import poltaratskiy.web.crud.dto.BookSearchRequestDto;
 import poltaratskiy.web.crud.mapper.BookMapper;
 import poltaratskiy.web.crud.model.Book;
 import poltaratskiy.web.crud.repository.BookRepository;
@@ -24,9 +25,10 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
-    public List<BookDto> findBooks(String searchRequest) {
-        return bookRepository.findByAuthorOrName(searchRequest, searchRequest).stream().map(bookMapper::
-        toDto).toList();
+    public List<BookDto> findBooks(BookSearchRequestDto searchRequest) {
+        var bookSearchRequest = bookMapper.toBookSearchRequest(searchRequest);
+        var result = bookRepository.findBooks(bookSearchRequest);
+        return result.stream().map(book -> bookMapper.toDto(book)).toList();
     }
 
     public List<BookDto> findBooksByAuthorId(Long authorId) {
