@@ -6,5 +6,5 @@ import lombok.Data;
 public class BookDto {
     private Long id;
     private String name;
-    private AuthorDto author;
+    private Long authorId;
 }

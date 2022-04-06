@@ -1,21 +1,21 @@
 package poltaratskiy.web.crud.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import poltaratskiy.web.crud.dto.BookSearchRequestDto;
 import poltaratskiy.web.crud.model.Author;
 import poltaratskiy.web.crud.model.Book;
-import poltaratskiy.web.crud.model.BookSearchRequest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.Join;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class BookSearchRepositoryImpl implements BookSearchRepository {
-    @Autowired
     private EntityManager entityManager;
 
     @Override
-    public List<Book> findBooks(BookSearchRequest request) {
+    public List<Book> findBooks(BookSearchRequestDto request) {
         var builder = entityManager.getCriteriaBuilder();
         var criteriaQuery = builder.createQuery(Book.class);
         var root = criteriaQuery.from(Book.class);

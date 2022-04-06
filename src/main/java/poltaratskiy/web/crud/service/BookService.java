@@ -26,13 +26,12 @@ public class BookService {
     }
 
     public List<BookDto> findBooks(BookSearchRequestDto searchRequest) {
-        var bookSearchRequest = bookMapper.toBookSearchRequest(searchRequest);
-        var result = bookRepository.findBooks(bookSearchRequest);
-        return result.stream().map(book -> bookMapper.toDto(book)).toList();
+        var result = bookRepository.findBooks(searchRequest);
+        return result.stream().map(bookMapper::toDto).toList();
     }
 
     public List<BookDto> findBooksByAuthorId(Long authorId) {
-        return bookRepository.findByAuthorId(authorId).stream().map(book -> bookMapper.toDto(book)).toList();
+        return bookRepository.findByAuthorId(authorId).stream().map(bookMapper::toDto).toList();
     }
 
     public BookDto createBook(BookDto bookDto) {

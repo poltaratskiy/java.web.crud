@@ -21,6 +21,11 @@ public class BookController {
         return bookService.findBooks(searchRequest);
     }
 
+    @GetMapping(value = "/api/authors/{authorId}/books")
+    public List<BookDto> getBooksByAuthorId(@PathVariable Long authorId) {
+        return bookService.findBooksByAuthorId(authorId);
+    }
+
     @GetMapping
     public List<BookDto> getAllBook() {
         return bookService.getBooks();
@@ -28,7 +33,7 @@ public class BookController {
 
     @PostMapping
     public BookDto addBook(@RequestBody BookDto bookDto) {
-        System.out.println("Book for save to database, author: " + bookDto.getAuthor().getName() + ", name: " + bookDto.getName());
+        System.out.println("Book for save to database, author id: " + bookDto.getAuthorId() + ", name: " + bookDto.getName());
         return bookService.createBook(bookDto);
     }
 
