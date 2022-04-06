@@ -36,3 +36,10 @@ CREATE DATABASE books;
 
 The last thing is to find application.properties and fill connection parameters to *spring.datasource* section and 
 you can run this application.
+
+## Features
+1. Create, read, update and delete operations for both of entities - *authors* and *books*;
+2. Join related entities and search by fields in both of them;
+3. Using JPA to obtain data from database and save;
+4. Database changelog using Liquibase;
+5. Swagger UI for API visualization. You can change UI path in *application.properties* file. I set */api/docs*
