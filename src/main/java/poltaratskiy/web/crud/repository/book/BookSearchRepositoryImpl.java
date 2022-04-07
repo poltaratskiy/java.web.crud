@@ -1,4 +1,4 @@
-package poltaratskiy.web.crud.repository;
+package poltaratskiy.web.crud.repository.book;
 
 import lombok.RequiredArgsConstructor;
 import poltaratskiy.web.crud.dto.BookSearchRequestDto;

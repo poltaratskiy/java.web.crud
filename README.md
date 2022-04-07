@@ -2,15 +2,15 @@
 ## About
 
 This pet project I created to learn Java, Spring framework, and how to design and implement RESTful API using Spring 
-Web, work with database using Spring Data using builtin JPA pattern and to keep db changelog using liquidbase.
+Web, work with database using Spring Data using builtin JPA pattern and to keep db changelog using liquibase.
 
 There are two related entities:
 - **authors** - is parent entity;
 - **books** - is child entity related with authors by *author_id* field.
 
 ## Get started
-This application requires Postgres database. I recommend to use docker image. First of all install Docker if you 
-don't have it, see [downloar docker](https://www.docker.com/get-started/). 
+This application requires Postgres database. I recommend to use docker image. First, install Docker if you 
+don't have it, see [download docker](https://www.docker.com/get-started/). 
 
 After that download image with Postgres:
 

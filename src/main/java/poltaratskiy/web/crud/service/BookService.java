@@ -10,7 +10,7 @@ import poltaratskiy.web.crud.dto.BookDto;
 import poltaratskiy.web.crud.dto.BookSearchRequestDto;
 import poltaratskiy.web.crud.mapper.BookMapper;
 import poltaratskiy.web.crud.model.Book;
-import poltaratskiy.web.crud.repository.BookRepository;
+import poltaratskiy.web.crud.repository.book.BookRepository;
 
 @Service
 @RequiredArgsConstructor
