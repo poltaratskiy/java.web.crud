@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 public class BookSearchRepositoryImpl implements BookSearchRepository {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Override
     public List<Book> findBooks(BookSearchRequestDto request) {

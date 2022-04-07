@@ -9,7 +9,6 @@ import poltaratskiy.web.crud.model.Book;
 public interface BookMapper {
     Book toBook(BookDto bookDto);
 
-    @Mapping(target = "author.books", ignore = true)
     @Mapping(target = "authorId", source = "author.id")
     BookDto toDto(Book book);
 }

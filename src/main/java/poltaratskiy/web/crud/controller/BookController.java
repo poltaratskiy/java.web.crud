@@ -21,7 +21,7 @@ public class BookController {
         return bookService.findBooks(searchRequest);
     }
 
-    @GetMapping(value = "/api/authors/{authorId}/books")
+    @GetMapping(value = "/author/{authorId}")
     public List<BookDto> getBooksByAuthorId(@PathVariable Long authorId) {
         return bookService.findBooksByAuthorId(authorId);
     }
